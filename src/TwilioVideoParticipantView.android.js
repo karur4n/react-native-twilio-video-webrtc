@@ -5,27 +5,25 @@
  *   Jonathan Chang <slycoder@gmail.com>
  */
 
-import { requireNativeComponent } from 'react-native'
-import PropTypes from 'prop-types'
+import {
+  requireNativeComponent,
+  View
+} from 'react-native'
 import React from 'react'
 
-class TwilioRemotePreview extends React.Component {
-  static propTypes = {
-    trackId: PropTypes.string,
-    renderToHardwareTextureAndroid: PropTypes.string,
-    onLayout: PropTypes.string,
-    accessibilityLiveRegion: PropTypes.string,
-    accessibilityComponentType: PropTypes.string,
-    importantForAccessibility: PropTypes.string,
-    accessibilityLabel: PropTypes.string,
-    nativeID: PropTypes.string,
-    testID: PropTypes.string
-  }
+const propTypes = {
+  ...View.propTypes
+}
 
+class TwilioRemotePreview extends React.Component {
   render () {
-    return <NativeTwilioRemotePreview {...this.props} />
+    return (
+      <NativeTwilioRemotePreview {...this.props} />
+    )
   }
 }
+
+TwilioRemotePreview.propTypes = propTypes
 
 const NativeTwilioRemotePreview = requireNativeComponent(
   'RNTwilioRemotePreview',
