@@ -79,7 +79,8 @@ const nativeEvents = {
   disconnect: 2,
   switchCamera: 3,
   toggleVideo: 4,
-  toggleSound: 5
+  toggleSound: 5,
+  toggleSpeakerOutput: 6
 }
 
 class CustomTwilioVideoView extends Component {
@@ -101,6 +102,10 @@ class CustomTwilioVideoView extends Component {
 
   setLocalAudioEnabled (enabled) {
     this.runCommand(nativeEvents.toggleSound, [enabled])
+  }
+
+  setSpeakerOutputEnabled(enabled) {
+    this.runCommand(nativeEvents.toggleSpeakerOutput, [enabled])
   }
 
   runCommand (event, args) {

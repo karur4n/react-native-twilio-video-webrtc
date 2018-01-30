@@ -37,6 +37,7 @@ public class CustomTwilioVideoViewManager extends SimpleViewManager<CustomTwilio
     private static final int SWITCH_CAMERA = 3;
     private static final int TOGGLE_VIDEO = 4;
     private static final int TOGGLE_SOUND = 5;
+    private static final int TOGGLE_SPEAKER_OUTPUT = 6;
 
     @Override
     public String getName() {
@@ -69,6 +70,10 @@ public class CustomTwilioVideoViewManager extends SimpleViewManager<CustomTwilio
             case TOGGLE_SOUND:
                 Boolean audioEnabled = args.getBoolean(0);
                 view.toggleAudio(audioEnabled);
+                break;
+            case TOGGLE_SPEAKER_OUTPUT:
+                Boolean speakerEnabled = args.getBoolean(0);
+                view.toggleSpeakerOutput(speakerEnabled);
                 break;
         }
     }
@@ -103,7 +108,8 @@ public class CustomTwilioVideoViewManager extends SimpleViewManager<CustomTwilio
             "disconnect", DISCONNECT,
             "switchCamera", SWITCH_CAMERA,
             "toggleVideo", TOGGLE_VIDEO,
-            "toggleSound", TOGGLE_SOUND
+            "toggleSound", TOGGLE_SOUND,
+            "toggleSpeakerOutput", TOGGLE_SPEAKER_OUTPUT
         );
     }
 }
